@@ -1,0 +1,252 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@423&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root{
+    --accent-color: rgb(11, 125, 255);
+    --text-color: white;
+    --container-bg-color: rgb(34, 49, 66);
+    --warning-color:rgb(255, 145, 56);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*--------------------------------------------------styling task page--------------------------------------------------*/
+
+section{
+    height: 500px;
+    width: 400px;
+    padding: 10px;
+    box-shadow:-7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+    -7px -7px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: var(--container-bg-color);
+}
+
+section h1{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: var(--accent-color);
+}
+
+form{
+    padding: 5px;
+    display: flex;
+    border-radius: 5px;
+}
+
+form input[type='text']{
+    flex-grow: 4;
+    padding: 5px;
+    outline: none;
+    transition: all .4s;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+form input[type='text']:focus{
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-right: 2px solid var(--text-color);
+}
+
+form input[value='Create Task']{
+    flex-grow: 1;
+    padding: 3px;
+    font-weight: bold;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transition: all .4s;
+    outline: none;
+}
+
+form input[value='Create Task']:hover{
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+
+form input[value='Create Task']:active{
+    transform: scale(.8);
+}
+
+section .tasks{
+    box-shadow:4px 7px 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-height: 360px;
+    overflow: auto;
+    background-color: var(--accent-color);
+}
+
+
+section .tasks span{
+    padding: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+section .tasks div {
+    background: var(--text-color);
+    border-radius: 5px;
+    
+}
+
+section .tasks div span{
+    display: flex;
+    padding: 10px;
+}
+
+span strike, span p{
+    flex-grow: 3;
+    width: 300px;
+}
+
+span a{
+    flex-grow: 1;
+}
+
+span a:hover{
+    opacity: .4;
+}
+
+span a.delete{
+    margin-left: 10px;
+    color: red;
+}
+
+span a.update{
+    color: green;
+}
+
+
+/*--------------------------------------------------styling delete page--------------------------------------------------*/
+.container{
+    width: 50%;
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+    height: 150px;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.container div:first-of-type{
+    font-size: 20px;
+}
+
+.container div:first-of-type p:last-child{
+    background-color: var(--warning-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.container .btns{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 40%;
+    margin: 50px auto;
+}
+
+.container .btns input[value='Confirm'],.container .btns a{
+    font-size: 30px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: all .4s;
+    border-radius: 12px;
+}
+
+.container .btns input[value='Confirm']{
+    background-color: var(--accent-color);
+    position: relative;
+    top: -5px;
+}
+
+.container .btns input[value='Confirm']:hover, .container .btns a:hover{
+    transform: scale(.9);
+}
+
+.container .btns a{
+    background-color: red;
+    padding-bottom: 0;
+    height: 38px;
+}
+
+
+/*--------------------------------------------------styling update page--------------------------------------------------*/
+
+.update-form-container{
+    background-color: var(--container-bg-color);
+    height: 40vh;
+    border-radius: 15px;
+    box-shadow:4px 7px 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 30vw;
+}
+
+.update-form-container h2{
+    color: var(--text-color);
+    text-align: center;
+    padding: 8px;
+}
+
+.update-form-container form{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.update-form-container input{
+    margin: 10px 0px;
+    width: 80%;
+}
+
+#title-input span, #check-input span{
+    background-color: var(--accent-color);
+    padding: 5px;
+    border-top-left-radius: 8px;
+    z-index: 1;
+}
+
+#title-input input{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    left: -5px;
+    position: relative;
+}
+
+#title-input input:focus{
+    border: none;
+    background: none;
+    text-decoration: underline;
+}
+
+#check-input input{
+    width: 10%;
+}
+
+.update-form-container input[value='Update Task']{
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow:2px 5px 15px 0 rgba(0, 0, 0, 0.4);
+    background-color: green;
+    font-weight: bold;
+    color: var(--text-color);
+    width: 50%;
+    margin: auto;
+}

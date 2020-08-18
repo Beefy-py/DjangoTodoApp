@@ -1,0 +1,20 @@
+{%extends 'tasks/base.html'%}
+{%block content%}
+    <div class="update-form-container">
+        <h2>Updating: {{task_title}}</h2>
+        <form action="" method="POST">
+            {%csrf_token%}
+            <div id="title-input">
+                <span>{{form.title.label}}</span> 
+                {{form.title}}
+                {{form.title.errors}}
+            </div>
+            <div id="check-input">
+                <span>{{form.complete.label}}</span> 
+                {{form.complete}}
+                {{form.complete.errors}}
+            </div>
+            <input type="submit" value="Update Task">
+        </form>
+    </div>
+{%endblock content%}

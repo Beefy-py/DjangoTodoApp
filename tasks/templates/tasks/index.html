@@ -1,0 +1,31 @@
+{%extends 'tasks/base.html'%}
+{%block content%}
+    <section>
+        <h1>Todo App</h1>
+        <form method="POST" action="/">
+            {%csrf_token%}
+            {{form.title}}
+            <input type="submit" value="Create Task">
+        </form>
+        <div class="tasks">
+            {% for task in tasks%}
+                <div>
+                    {%if task.complete %}
+                    <span>
+                        <strike>{{task}}</strike>
+                        <a class="update" href="{% url 'update_task' task.id %}"><i class="fas fa-pen"></i></a>
+                        <a class="delete"  href="{% url 'delete_task' task.id %}"><i class="fas fa-trash"></i></a>
+                    </span>
+                    {%else%}
+                    <span>
+                        <p>{{task}}</p>
+                        <a class="update"  href="{% url 'update_task' task.id %}"><i class="fas fa-pen"></i>
+                        </a> <a class="delete"  href="{% url 'delete_task' task.id %}"><i class="fas fa-trash"></i>
+                        </a>
+                    </span>
+                    {%endif%}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{%endblock content%}
